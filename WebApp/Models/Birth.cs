@@ -9,7 +9,7 @@ public class Birth
     
     public bool IsValid()
     {
-        return name != null && date != null;
+        return name != null && date != null&& DateTime.Now >date;
     }
     
     public int? Calculate()
