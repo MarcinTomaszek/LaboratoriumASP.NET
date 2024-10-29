@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UrycMqbc9nWSIBNNOOxI2QVa4Ln/oghQh4hxQ4gfBKtrDwEPO3z9vI/BJgGatFMH3+PnJVWT4yUvg4nbtqMOcA==",
+  "dgSpecHash": "cbxsVPC5eOsPgPre4HnWQ4r61D07qY9BI8NtCgEiKKAEDbANLMztMIo6TM8i5nKSyICcCWla8qiwCpw8YyBBtA==",
   "success": true,
-  "projectFilePath": "D:\\Users\\TEMP\\RiderProjects\\LaboratoriumASP.NET\\WebApp\\WebApp.csproj",
+  "projectFilePath": "D:\\RiderProjects\\LaboratoriumASP.NET\\WebApp\\WebApp.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
