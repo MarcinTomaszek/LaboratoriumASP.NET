@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
+using WebApp.Models;
 
 namespace WebApp.Models;
 
@@ -27,4 +28,6 @@ public class ContactModel
     
     [DataType(DataType.Date)]
     public DateOnly BirthDate { get; set; }
+
+    public Category Category { get; set; }
 }
