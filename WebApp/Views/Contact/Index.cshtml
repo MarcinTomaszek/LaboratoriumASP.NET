@@ -1,43 +1,62 @@
-@model System.Collections.Generic.Dictionary<int,WebApp.Models.ContactModel>
+@model List<ContactModel>
 @{
     ViewBag.Title = "title";
     Layout = "_Layout";
 }
 
-<h2>Kontakty</h2>
-<a class="btn btn-primary" asp-action="Add" asp-controller="Contact">Dodaj kontakt</a>
-<h4>Lista kontaktów</h4>
-<table class="table">
-    <thead>
-    <tr>
-        <th>
-            Imię
-        </th>
-        <th>
-            Nazwisko
-        </th>
-        <th>
-            Akcje
-        </th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach (var entry in @Model)
-    {
+<h2>Contacts</h2>
+<a class="btn btn-primary" asp-action="Add" asp-controller="Contact">Add Contact</a>
+<h4>Contact List</h4>
+
+@if (Model.Count > 0)
+{
+    <table class="table">
+        <thead>
         <tr>
-            <td>
-                @entry.Value.BirthDate
-            </td>
-            <td>
-                @entry.Value.LastName
-            </td>
-            <td>
-                <a class="btn btn-success" asp-action="Edit" asp-controller="Contact" >Edycja</a>
-                <a class="btn btn-info" asp-action="Details" asp-controller="Contact" >Szczegóły</a>
-                <a class="btn btn-danger"  asp-controller="Contact" asp-action="Delete" asp-route-id="@entry.Key">Usuń</a>
-            </td>
+            <th>
+                @Html.DisplayNameFor(l=>l[0].FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(l=>l[0].LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(l=>l[0].Category)
+            </th>
+            <th>
+                <div class="float-end">
+                    Action
+                </div>
+            </th>
         </tr>
-    }
-    </tbody>
+        </thead>
+        <tbody>
+        @foreach (var e in @Model)
+        {
+            <tr>
+                <td>
+                    @e.FirstName
+                </td>
+                <td>
+                    @e.LastName
+                </td>
+                <td>
+                    @e.Category.GetDisplayName()
+                </td>
+                <td>
+                    <div class="float-end">
+                        <a class="btn btn-success" asp-action="Edit" asp-controller="Contact">Edit</a>
+                        <a class="btn btn-info" asp-action="Details" asp-controller="Contact">Details</a>
+                        <a class="btn btn-danger" asp-controller="Contact" asp-action="Delete" asp-route-id="@e.Id">Delete</a>
+                    </div>
+                </td>
+            </tr>
+        }
+        </tbody>
+        
+    </table>
+}
+else
+{
+    <h3 class="text-danger"> Contact List Empty</h3>
+}
     
-</table>

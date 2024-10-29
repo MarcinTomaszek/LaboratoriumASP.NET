@@ -15,7 +15,7 @@ public class ContactController : Controller
     private static int _currentId = 3;
     public IActionResult Index()
     {
-        return View(_contacts);
+        return View(_contacts.Values.ToList());
     }
 
     public IActionResult Add()
@@ -33,16 +33,16 @@ public class ContactController : Controller
 
         cm.Id = ++_currentId;
         _contacts.Add(cm.Id,cm);
-        return View("Index", _contacts);
+        return RedirectToAction(nameof(Index));
     }
 
     public IActionResult Delete(int id)
     {
         _contacts.Remove(id);
-        return View("Index", _contacts);
+        return RedirectToAction(nameof(Index));
     }
 
-    public IActionResult Details()
+    public IActionResult Details(int id)
     {
         throw new NotImplementedException();
     }
