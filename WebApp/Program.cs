@@ -1,3 +1,4 @@
+using WebApp.Models;
 using WebApp.Models.Services;
 
 namespace WebApp;
@@ -7,9 +8,16 @@ public class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
-        builder.Services.AddSingleton<IContactService, MemoryContactService>();
+        
         // Add services to the container.
+
         builder.Services.AddControllersWithViews();
+        
+        builder.Services.AddDbContext<AppDbContext>();
+        builder.Services.AddTransient<IContactService, EFContactService>();
+        
+        // builder.Services.AddSingleton<IContactService, MemoryContactService>();
+        
 
         var app = builder.Build();
 
