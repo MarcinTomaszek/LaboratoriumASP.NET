@@ -12,7 +12,9 @@ public class ContactMapper
             Email = arg.Email,
             FirstName = arg.FirstName,
             LastName = arg.LastName,
-            PhoneNumber = arg.PhoneNumber
+            PhoneNumber = arg.PhoneNumber,
+            Organization = arg.Organization,
+            OrganizationId = arg.OrganizationId
         };
     }
 
@@ -26,7 +28,9 @@ public class ContactMapper
             Email = arg.Email,
             FirstName = arg.FirstName,
             LastName = arg.LastName,
-            PhoneNumber = arg.PhoneNumber
+            PhoneNumber = arg.PhoneNumber,
+            Organization = arg.Organization,
+            OrganizationId = arg.OrganizationId
         };
     }
 }
